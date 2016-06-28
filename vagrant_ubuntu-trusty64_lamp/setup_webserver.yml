@@ -1,8 +1,8 @@
-# This will deploy a LAMP stack on Vagrant box ubuntu/trusty64 
-# Change mysql_user name and password
-# The Vagrantfile will provision the update and provision the webserver:
+# This will deploy a LAMP stack on vagrant box ubuntu/trusty64 
+# Change the mysql_user name and password
+# The provided Vagrantfile will update, provision and start the webserver:
 #       vagrant up --provision
-# The vagrant box will serve on 192.168.33.10 to the host machine only
+# The box will serve on 192.168.33.10 to the host machine only
 
 ---
 - hosts: all

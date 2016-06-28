@@ -12,7 +12,7 @@
     - name: Update packages
       apt: update_cache=yes upgrade=dist 
 
-    - name: "Install Apache, MySQL, and PHP7"
+    - name: "Install Apache, MySQL, and PHP5"
       apt: name={{ item }} state=present
       with_items:
         - apache2

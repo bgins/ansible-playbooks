@@ -1,0 +1,38 @@
+# This will deploy a LAMP stack on Vagrant box ubuntu/trusty64 
+# Change mysql_user name and password
+# The Vagrantfile will provision the update and provision the webserver:
+#       vagrant up --provision
+# The vagrant box will serve on 192.168.33.10 to the host machine only
+
+---
+- hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Update packages
+      apt: update_cache=yes upgrade=dist 
+
+    - name: "Install Apache, MySQL, and PHP7"
+      apt: name={{ item }} state=present
+      with_items:
+        - apache2
+        - mysql-server
+        - python-mysqldb
+        - php5
+        - php-pear
+        - php5-mysql
+
+    - name: "Turn on Apache and MySQL and set them to run on boot"
+      service: name={{ item }} state=started enabled=yes
+      with_items:
+        - apache2
+        - mysql
+
+    - name: Create a test database
+      mysql_db: name=testDb
+                state=present
+
+    - name: Create a new user for connections
+      mysql_user: name=webapp
+                  password=mypassword
+                  priv=*.*:ALL state=present

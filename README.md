@@ -1,7 +1,7 @@
 # ansible-playbooks
 A collection of ansible playbooks. Each playbook has comments specifying variables which must be changed and special instructions.
 
-### vagrant ubuntu/trusty64 LAMP
+### vagrant: LAMP stack, ubuntu/trusty64
 Deploys a LAMP stack on an ubuntu/trusty64 vagrant box. The playbook does the following:
 
 1. Update and upgrade the system

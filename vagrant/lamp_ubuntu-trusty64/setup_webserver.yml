@@ -1,6 +1,6 @@
-# This will deploy a LAMP stack on vagrant box ubuntu/trusty64 
+# This will deploy a LAMP stack on an ubuntu/trusty64 vagrant box
 # Change the mysql_user name and password
-# The provided Vagrantfile will update, provision and start the webserver:
+# The provided Vagrantfile will call this playbook:
 #       vagrant up --provision
 # The box will serve on 192.168.33.10 to the host machine only
 
